@@ -5,8 +5,8 @@ module.exports.envReplace = envReplace;
 
 let isWindows = module.exports.isWindows = process.platform === 'win32';
 
-function parseField (f, k) {
-    if (typeof f !== 'string' && !(f instanceof String)) return f
+function parseField(types, f, k) {
+    if (typeof f !== 'string' && !(f instanceof String)) { return f; }
 
     // type can be an array or single thing.
     var typeList = [].concat(types[k])
@@ -25,13 +25,19 @@ function parseField (f, k) {
         }
     }
 
-    if (isBool && !isString && f === '') { return true }
+    if (isBool && !isString && f === '') {
+        return true
+    }
 
     switch (f) {
-        case 'true': return true
-        case 'false': return false
-        case 'null': return null
-        case 'undefined': return undefined
+        case 'true':
+            return true
+        case 'false':
+            return false
+        case 'null':
+            return null
+        case 'undefined':
+            return undefined
     }
 
     f = envReplace(f)
@@ -44,7 +50,9 @@ function parseField (f, k) {
         f = path.resolve(f)
     }
 
-    if (isNumber && !isNaN(f)) { f = +f }
+    if (isNumber && !isNaN(f)) {
+        f = +f
+    }
 
     return f
 }

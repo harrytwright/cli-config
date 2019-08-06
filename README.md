@@ -5,9 +5,9 @@ A CLI options middleman for nopt
 ## Usage
 
 ```javascript
-import load from '@harrytwright/cli-config';
+import conf from '@harrytwright/cli-config';
 
-const config = load( /* types */ {
+const config = conf.init( /* types */ {
     usage: Boolean,
     version: Boolean
 }, /* Shorthands */ {
