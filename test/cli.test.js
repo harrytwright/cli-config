@@ -5,31 +5,6 @@ import config from '../index'
 const expect = chai.expect;
 
 describe('cli', function () {
-    describe('calling init', function () {
-        describe('passing a string results in a string', function () {
-            it('should return required value', function () {
-                var conf = config.init({ key: String }, {}, { key: null }, ["--key", "myvalue"], 0);
-                expect(conf.get('key')).to.eq("myvalue");
-            });
-        });
-
-        describe('using shorthand', function () {
-            it('should return the required value', function () {
-                var conf = config.init({
-                    loglevel: ['silent', 'error', 'warn', 'notice', 'http', 'timing', 'info', 'verbose', 'silly']
-                }, {
-                    quiet: '--loglevel warn'
-                }, {
-                    loglevel: 'notice'
-                }, [
-                    "--quiet"
-                ], 0);
-
-                expect(conf.get('loglevel')).to.eq("warn");
-            });
-        });
-    });
-
 
     describe('calling load', function () {
         var opts;

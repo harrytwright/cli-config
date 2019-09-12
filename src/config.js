@@ -15,29 +15,6 @@ var { envReplace, parseField } = require('./utils');
 module.exports.Configuration = Configuration;
 module.exports.parse = parse;
 module.exports.load = load;
-module.exports.init = init;
-
-/**
- *
- * */
-function init(types, shorthand, defaults, argv = process.argv, slice = 2) {
-    if (defaults === undefined) {
-        if (!shorthand) { throw new Error('Requires the default values for all options'); }
-
-        defaults = shorthand;
-        shorthand = { }
-    }
-
-    var options = parse(types, shorthand, argv, slice);
-    var remain = options.argv.remain;
-    delete options.argv.remain;
-
-    var conf =  new Configuration(types, defaults);
-    conf.add(options, 'cli');
-    conf.set('argv', remain);
-
-    return conf;
-};
 
 /**
  *
@@ -45,11 +22,11 @@ function init(types, shorthand, defaults, argv = process.argv, slice = 2) {
 function load(types, cli, defaults, callback) {
     aproba('OOOF|OOO', arguments);
 
-    var remain = cli.argv.remain;
+    // var remain = cli.argv.remain;
 
     var conf =  new Configuration(types, defaults);
     conf.add(cli, 'cli');
-    conf.set('argv', remain);
+    // conf.set('argv', remain);
 
     if (callback) {
         conf.on('load', callback);
