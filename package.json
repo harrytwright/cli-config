@@ -1,6 +1,6 @@
 {
   "name": "@harrytwright/cli-config",
-  "version": "1.1.1",
+  "version": "1.2.0",
   "description": "CLI tools to handle options",
   "main": "index.js",
   "scripts": {
