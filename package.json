@@ -21,19 +21,23 @@
     "aproba": "^2.0.0",
     "config-chain": "^1.1.12",
     "inherits": "^2.0.4",
-    "nopt": "^4.0.1"
+    "nopt": "^4.0.3"
   },
   "devDependencies": {
-    "@babel/cli": "^7.5.5",
-    "@babel/core": "^7.5.5",
-    "@babel/polyfill": "^7.4.4",
-    "@babel/preset-env": "^7.5.5",
-    "@babel/register": "^7.5.5",
+    "@babel/cli": "^7.10.5",
+    "@babel/core": "^7.10.5",
+    "@babel/polyfill": "^7.10.4",
+    "@babel/preset-env": "^7.10.4",
+    "@babel/register": "^7.10.5",
     "chai": "^4.2.0",
-    "mocha": "^6.2.0",
-    "standard": "^13.1.0"
+    "mocha": "^8.0.1",
+    "standard": "^14.3.4"
   },
   "optionalDependencies": {
     "debug": "^4.1.1"
+  },
+  "mocha": {
+    "reporter": "dot",
+    "ui": "bdd"
   }
 }

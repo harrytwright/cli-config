@@ -8,6 +8,8 @@ try {
     debug = function() { };
 }
 
+const title = process.env.CLI_TITLE || process.title
+
 var { ConfigChain } = require('config-chain');
 
 var { envReplace, parseField } = require('./utils');
@@ -26,6 +28,7 @@ function load(types, cli, defaults, callback) {
 
     var conf =  new Configuration(types, defaults);
     conf.add(cli, 'cli');
+    conf.addEnv()
     // conf.set('argv', remain);
 
     if (callback) {
@@ -68,3 +71,21 @@ Configuration.prototype.add = function(data, marker) {
 
     ConfigChain.prototype.add.call(this, data, marker);
 };
+
+Configuration.prototype.addEnv = function (env) {
+    env = env || process.env
+    var conf = {}
+    Object.keys(env)
+        .filter(function (k) { return k.match(new RegExp(`^${title}_config_`, 'i')) })
+        .forEach(function (k) {
+            if (!env[k]) return
+
+            // leave first char untouched, even if
+            // it is a '_' - convert all other to '-'
+            var p = k.toLowerCase()
+                .replace(new RegExp(`^${title}_config_`), '')
+                .replace(/(?!^)_/g, '-')
+            conf[p] = env[k]
+        })
+    return ConfigChain.prototype.addEnv.call(this, '', conf, 'env')
+}
