@@ -1,6 +1,6 @@
 {
   "name": "@harrytwright/cli-config",
-  "version": "1.2.0",
+  "version": "2.0.0-beta.1",
   "description": "CLI tools to handle options",
   "main": "index.js",
   "scripts": {
@@ -18,23 +18,17 @@
     "url": "https://github.com/harrytwright/cli-config"
   },
   "dependencies": {
-    "aproba": "^2.0.0",
-    "config-chain": "^1.1.12",
-    "inherits": "^2.0.4",
-    "nopt": "^4.0.3"
+    "nopt": "^5.0.0"
   },
   "devDependencies": {
-    "@babel/cli": "^7.10.5",
-    "@babel/core": "^7.10.5",
-    "@babel/polyfill": "^7.10.4",
-    "@babel/preset-env": "^7.10.4",
-    "@babel/register": "^7.10.5",
+    "@babel/cli": "^7.12.1",
+    "@babel/core": "^7.12.3",
+    "@babel/polyfill": "^7.12.1",
+    "@babel/preset-env": "^7.12.1",
+    "@babel/register": "^7.12.1",
     "chai": "^4.2.0",
-    "mocha": "^8.0.1",
-    "standard": "^14.3.4"
-  },
-  "optionalDependencies": {
-    "debug": "^4.1.1"
+    "mocha": "^8.2.1",
+    "standard": "^16.0.1"
   },
   "mocha": {
     "reporter": "dot",
