@@ -24,7 +24,8 @@
     "nopt": "^5.0.0"
   },
   "devDependencies": {
-    "chai": "^4.2.0",
+    "@types/node": "^15.6.1",
+    "chai": "^4.3.4",
     "cross-env": "^7.0.3",
     "mocha": "^8.4.0",
     "nyc": "^15.0.0",
