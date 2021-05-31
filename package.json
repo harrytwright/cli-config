@@ -8,8 +8,10 @@
     "test": "cross-env NODE_ENV=test mocha --exit",
     "coverage": "nyc --reporter=lcov --reporter=text-summary npm run test",
     "lint": "npx standard ./src --fix",
-    "prepublishOnly": "npx tsc && npm run lint && npm audit",
-    "postpublish": "find . -name \"*.d.ts\" -type f -delete"
+    "pretype": "find ./src -name \"*.d.ts\" -type f -delete && rm -rf index.d.ts",
+    "type": "npx tsc",
+    "prepublishOnly": "npm run type && npm run lint && npm audit",
+    "postpublish": "npm run pretype"
   },
   "keywords": [
     "cli"

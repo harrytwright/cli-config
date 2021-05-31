@@ -32,7 +32,7 @@ const _get = Symbol('get')
  * This values are only set for testing purposes
  *
  * @property {Object} [env]
- * @property {Array<string>} [argv]
+ * @property {[string]} [argv]
  * @property {string} [cwd]
  * */
 
@@ -60,7 +60,7 @@ class Config {
     /** @type {Object} */
     this.envMap = envMap
 
-    /** @type {Array<string>} */
+    /** @type {[string]} */
     this.argv = argv
 
     /** @type {Object} */

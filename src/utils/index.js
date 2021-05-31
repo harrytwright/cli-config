@@ -4,6 +4,15 @@ module.exports.parseField = parseField
 
 const isWindows = module.exports.isWindows = process.platform === 'win32'
 
+/**
+ * Check if the values is a valid type can convert it
+ *
+ * @param {Object} types - types for type checker
+ * @param {any} f - value
+ * @param {string} k - key
+ *
+ * @internal
+ * */
 function parseField (types, f, k) {
   if (typeof f !== 'string' && !(f instanceof String)) { return f }
 
