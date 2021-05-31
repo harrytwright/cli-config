@@ -1,6 +1,6 @@
-import chai from 'chai'
+const chai = require('chai')
 
-import config from '../index'
+const config = require('../index')
 
 const expect = chai.expect;
 
@@ -21,16 +21,32 @@ describe('cli', function () {
     })
 
     describe('calling load', function () {
-        var opts, argv;
+        describe('simple arg', function () {
+            var opts, argv;
 
-        before(function () {
-            argv = ['', '', '--key', 'myvalue']
-            opts = new config({}, { key: String }, {}, { argv  })
+            before(function () {
+                argv = ['', '', '--key', 'myvalue']
+                opts = new config({}, { key: String }, {}, { argv  })
+            });
+
+            it('should return required value', function () {
+                opts.load()
+                expect(opts.get('key')).to.eq(argv.pop());
+            });
         });
 
-        it('should return required value', function () {
-            opts.load()
-            expect(opts.get('key')).to.eq(argv.pop());
+        describe('use case arg', function () {
+            var opts, argv;
+
+            before(function () {
+                argv = ['', '', '--database-collection', 'myvalue']
+                opts = new config({ 'database-collection': 'something else' }, { 'database-collection': String }, {}, { argv  })
+            });
+
+            it('should return required value', function () {
+                opts.load()
+                expect(opts.get('database-collection')).to.eq(argv.pop());
+            });
         });
     });
 });

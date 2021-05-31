@@ -3,10 +3,13 @@
   "version": "2.0.0-beta.1",
   "description": "CLI tools to handle options",
   "main": "index.js",
+  "types": "./index.d.ts",
   "scripts": {
-    "lint": "standard src --fix",
-    "test": "npm run lint && mocha --require @babel/register --require @babel/polyfill",
-    "prepublishOnly": "npm run lint && npm audit"
+    "test": "cross-env NODE_ENV=test mocha --exit",
+    "coverage": "nyc --reporter=lcov --reporter=text-summary npm run test",
+    "lint": "npx standard ./src --fix",
+    "prepublishOnly": "npx tsc && npm run lint && npm audit",
+    "postpublish": "find . -name \"*.d.ts\" -type f -delete"
   },
   "keywords": [
     "cli"
@@ -21,13 +24,10 @@
     "nopt": "^5.0.0"
   },
   "devDependencies": {
-    "@babel/cli": "^7.12.1",
-    "@babel/core": "^7.12.3",
-    "@babel/polyfill": "^7.12.1",
-    "@babel/preset-env": "^7.12.1",
-    "@babel/register": "^7.12.1",
     "chai": "^4.2.0",
+    "cross-env": "^7.0.3",
     "mocha": "^8.2.1",
+    "nyc": "^15.0.0",
     "standard": "^16.0.1"
   },
   "mocha": {
