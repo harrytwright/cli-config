@@ -1,6 +1,6 @@
 {
   "name": "@harrytwright/cli-config",
-  "version": "2.0.0-beta.2",
+  "version": "2.0.0-beta.3",
   "description": "CLI tools to handle options",
   "main": "index.js",
   "types": "./index.d.ts",
