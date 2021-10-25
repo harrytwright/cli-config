@@ -33,7 +33,7 @@ const defaults = {
     version: false
 }
 
-const config = new Config(defaults, types, { }, { })
+const config = new Config({ defaults, types })
 config.load()
 
 config.get('port') // 27017

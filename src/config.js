@@ -34,6 +34,10 @@ const _get = Symbol('get')
  * @property {Object} [env]
  * @property {[string]} [argv]
  * @property {string} [cwd]
+ * @property {Object} [defaults]
+ * @property {Object} [types]
+ * @property {Object} [shorthand]
+ * @property {Object} [envMap]
  * */
 
 /**
@@ -43,16 +47,16 @@ const _get = Symbol('get')
  * */
 class Config {
   /**
-   * @param {Object} defaults
-   * @param {Object} types
-   * @param {Object} envMap
    * @param {ConfigOptions} [options]
    *
    * @constructor
    * */
-  constructor (defaults, types, envMap, { env = process.env, argv = process.argv, cwd = process.cwd() }) {
+  constructor ({ defaults = { }, types = { }, envMap = { }, shorthand = { }, env = process.env, argv = process.argv, cwd = process.cwd() }) {
     /** @type {Object} */
     this.defaults = defaults
+
+    /** @type {Object} */
+    this.shorthand = shorthand
 
     /** @type {Object} */
     this.types = types
@@ -202,7 +206,7 @@ class Config {
    * @private
    * */
   loadCLI () {
-    const conf = nopt(this.types, { }, this.argv, 2)
+    const conf = nopt(this.types, this.shorthand, this.argv, 2)
     this.parsedArgv = conf.argv
     delete conf.argv
 
