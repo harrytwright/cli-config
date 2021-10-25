@@ -21,5 +21,5 @@
 const log = (level) => (...args) => process.emit('log', level, ...args)
 
 for (const level of ['silly', 'verbose', 'info', 'warn', 'error']) {
-  exports[level] = log(level)
+  module.exports[level] = log(level)
 }
