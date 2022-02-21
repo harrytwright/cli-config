@@ -51,7 +51,10 @@ class Config {
    *
    * @constructor
    * */
-  constructor ({ defaults = { }, types = { }, envMap = { }, shorthand = { }, env = process.env, argv = process.argv, cwd = process.cwd() }) {
+  constructor (options) {
+    const defaultArguments = { defaults: { }, types: { }, envMap: { }, shorthand: { }, env: process.env, argv: process.argv, cwd: process.cwd() }
+    const { defaults, types, envMap, shorthand, env, argv, cwd } = { ...defaultArguments, ...options }
+
     /** @type {Object} */
     this.defaults = defaults
 

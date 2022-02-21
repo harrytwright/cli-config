@@ -17,6 +17,7 @@ describe('cli', function () {
         it('should return required value', function () {
             opts.load()
             expect(opts.get('path')).to.eq(env.PATH);
+            expect(opts.cwd).to.be.eq(process.cwd())
         });
     })
 
