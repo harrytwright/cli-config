@@ -23,7 +23,7 @@
     "url": "https://github.com/harrytwright/cli-config"
   },
   "dependencies": {
-    "nopt": "^5.0.0"
+    "nopt": "^7.0.0"
   },
   "devDependencies": {
     "@types/node": "^17.0.19",
