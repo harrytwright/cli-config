@@ -97,5 +97,3 @@ typings/
 *.iml
 out
 gen
-
-*.d.ts
