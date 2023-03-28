@@ -1,6 +1,6 @@
 # CLI Config
 
-> Beta stage of a new change
+> Remove test support of 10.x, code should still work, but won't be testing anymore
 
 A CLI options middleman for nopt
 
