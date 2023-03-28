@@ -1,6 +1,6 @@
 {
   // Change this to match your project
-  "include": ["src/**/*", "index.js"],
+  "include": ["src/config.js"],
   "exclude": ["node_modules"],
   "compilerOptions": {
     // Tells TypeScript to read JS files, as
