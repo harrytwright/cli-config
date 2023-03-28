@@ -1,6 +1,6 @@
 const chai = require('chai')
 
-const config = require('../index')
+const config = require('../index').Config
 
 const expect = chai.expect;
 

@@ -16,6 +16,7 @@ const { parseField } = require('./utils')
 const hasOwnProperty = (obj, key) =>
   Object.prototype.hasOwnProperty.call(obj, key)
 
+// This is the load/overwrite order
 const kTypes = new Set([
   'default',
   'env',
@@ -29,15 +30,15 @@ const _get = Symbol('get')
 /**
  * @typedef {Object} ConfigOptions
  *
- * This values are only set for testing purposes
+ * These values are only set for testing purposes
  *
- * @property {Object} [env]
+ * @property {object} [env]
  * @property {[string]} [argv]
  * @property {string} [cwd]
- * @property {Object} [defaults]
- * @property {Object} [types]
- * @property {Object} [shorthand]
- * @property {Object} [envMap]
+ * @property {object} [defaults]
+ * @property {object} [types]
+ * @property {object} [shorthand]
+ * @property {object} [envMap]
  * */
 
 /**
@@ -305,4 +306,5 @@ class ConfigData {
   get raw () { return this[_raw] }
 }
 
-module.exports = Config
+module.exports = { }
+module.exports.Config = Config

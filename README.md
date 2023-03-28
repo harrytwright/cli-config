@@ -7,7 +7,7 @@ A CLI options middleman for nopt
 ## Usage
 
 ```javascript
-import Config from '@harrytwright/cli-config';
+import { Config } from '@harrytwright/cli-config';
 
 const types = {
     color: ['always', Boolean],
