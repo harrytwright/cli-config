@@ -23,7 +23,7 @@
     "nopt": "^7.1.0"
   },
   "devDependencies": {
-    "@types/node": "^18.15.10",
+    "@types/node": "^20.2.5",
     "chai": "^4.3.7",
     "cross-env": "^7.0.3",
     "mocha": "^10.2.0",
